@@ -76,26 +76,36 @@ const images = [
   },
 ];
 
-const galleryEl = document.querySelector('.gallery');
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryEl = document.querySelector('.gallery');
 
-const makeGalleryItem = ({ preview, original, description }) => {
-  const itemEl = document.createElement('li');
-  itemEl.classList.add('gallery-item');
+  const makeGalleryItem = ({ preview, original, description }) => {
+    const itemEl = document.createElement('li');
+    itemEl.classList.add('gallery-item');
 
-  const linkEl = document.createElement('a');
-  linkEl.classList.add('gallery-link');
-  linkEl.href = original;
+    const linkEl = document.createElement('a');
+    linkEl.classList.add('gallery-link');
+    linkEl.href = original;
 
-  const imgEl = document.createElement('img');
-  imgEl.classList.add('gallery-image');
-  imgEl.src = preview;
-  imgEl.alt = description;
+    const imgEl = document.createElement('img');
+    imgEl.classList.add('gallery-image');
+    imgEl.src = preview;
+    imgEl.alt = description;
 
-  linkEl.appendChild(imgEl);
-  itemEl.appendChild(linkEl);
+    linkEl.appendChild(imgEl);
+    itemEl.appendChild(linkEl);
 
-  return itemEl;
-};
+    return itemEl;
+  };
 
-const galleryItems = images.map(makeGalleryItem);
-galleryEl.append(...galleryItems);
+  const galleryItems = images.map(makeGalleryItem);
+  galleryEl.append(...galleryItems);
+
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250
+  });
+});

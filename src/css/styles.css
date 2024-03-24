@@ -6,3 +6,53 @@
 */
 @import url('./reset.css');
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.gallery-item {
+  width: calc(33.333% - 24px);
+  margin: 12px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feedback-form {
+  padding: 24px 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.btn {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  width: 30%;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #6c8cff;
+}
